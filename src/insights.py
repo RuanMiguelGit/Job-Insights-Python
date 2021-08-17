@@ -69,9 +69,6 @@ def get_unique_industries(path):
     return industries
 
 
-print(get_unique_industries("./src/jobs.csv"))
-
-
 def filter_by_industry(jobs, industry):
     """Filters a list of jobs by industry
 
@@ -91,21 +88,20 @@ def filter_by_industry(jobs, industry):
 
 
 def get_max_salary(path):
-    """Get the maximum salary of all jobs
+    salaries = []
+    content = read(path)
+    result = list({value["max_salary"]: value for value in content}.values())
+    for x in result:
+        if x["max_salary"] not in salaries:
+            if x["max_salary"] != "":
+                if x["max_salary"].isdigit():
+                    salaries.append(x["max_salary"])
+                    stc = list(map(int, salaries))
+                    max_value = max(stc)
+    return max_value
 
-    Must call `read`
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The maximum salary paid out of all job opportunities
-    """
-    pass
+print(get_max_salary("./src/jobs.csv"))
 
 
 def get_min_salary(path):
