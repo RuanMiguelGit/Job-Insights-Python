@@ -101,9 +101,6 @@ def get_max_salary(path):
     return max_value
 
 
-print(get_max_salary("./src/jobs.csv"))
-
-
 def get_min_salary(path):
     """Get the minimum salary of all jobs
 
@@ -119,7 +116,21 @@ def get_min_salary(path):
     int
         The minimum salary paid out of all job opportunities
     """
+    salaries = []
+    content = read(path)
+    result = list({value["min_salary"]: value for value in content}.values())
+    for x in result:
+        if x["min_salary"] not in salaries:
+            if x["min_salary"] != "":
+                if x["min_salary"].isdigit():
+                    salaries.append(x["min_salary"])
+                    stc = list(map(int, salaries))
+                    max_value = min(stc)
+    return max_value
     pass
+
+
+print(get_min_salary("./src/jobs.csv"))
 
 
 def matches_salary_range(job, salary):
