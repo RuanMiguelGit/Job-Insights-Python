@@ -41,7 +41,10 @@ def filter_by_job_type(jobs, job_type):
     list
         List of jobs with provided job_type
     """
-    return []
+
+    filtered_jobs = [bulot for bulot in jobs if bulot["job_type"] == job_type]
+
+    return filtered_jobs
 
 
 def get_unique_industries(path):
@@ -84,7 +87,13 @@ def filter_by_industry(jobs, industry):
     list
         List of jobs with provided industry
     """
-    return []
+    filtered_industries = [
+        bulot for bulot in jobs if bulot["industry"] == industry
+    ]
+    return filtered_industries
+
+
+print(filter_by_industry(read("./src/jobs.csv"), "Business Services"))
 
 
 def get_max_salary(path):
@@ -128,9 +137,6 @@ def get_min_salary(path):
                     max_value = min(stc)
     return max_value
     pass
-
-
-print(get_min_salary("./src/jobs.csv"))
 
 
 def matches_salary_range(job, salary):
