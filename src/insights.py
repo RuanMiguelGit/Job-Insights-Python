@@ -93,9 +93,6 @@ def filter_by_industry(jobs, industry):
     return filtered_industries
 
 
-print(filter_by_industry(read("./src/jobs.csv"), "Business Services"))
-
-
 def get_max_salary(path):
     salaries = []
     content = read(path)
@@ -162,7 +159,15 @@ def matches_salary_range(job, salary):
         If `job["min_salary"]` is greather than `job["max_salary"]`
         If `salary` isn't a valid integer
     """
-    pass
+    try:
+        max_value, min_value = job["max_salary"], job["min_salary"]
+    except KeyError:
+        raise ValueError("Theres no max or min value in the job object")
+    if (type(max_value) or type(min_value) or type(salary)) != int:
+        raise ValueError("Values must be integers")
+    if min_value > max_value:
+        raise ValueError("min salary cannot be greater than max salary")
+    return max_value >= salary >= min_value
 
 
 def filter_by_salary_range(jobs, salary):
@@ -180,4 +185,5 @@ def filter_by_salary_range(jobs, salary):
     list
         Jobs whose salary range contains `salary`
     """
+
     return []
