@@ -4,11 +4,15 @@
 
 
 # Como Funciona
-<li> É ṕossível verificar o Número de estudantes estudando no mesmo horário (Algoritmo de busca) </li>
-<li> É possível verificar se uma palavra é um Palíndromos (Recursividade)</li>
-<li> É possível verificar se uma palavra é um Anagramas (Algoritmo de ordenação)</li>
-<li> É possível encontrar números repetidos (Algoritmo de busca) </li>
-<li> É possível verificar se uma palavra é um Palíndromos (Iteratividade) </li>
+<li> É possível ler um arquivo csv</li>
+<li> É possível listar as oportunidades de trabalho únicas</li>
+<li> É possível listar as industrias únicas</li> 
+<li> É possível listar o salário máximo e o mínimo por trabalho e por industria</li>
+<li> É possível filtrar por tipo de trabalho</li>
+<li> É possível  filtrar por tipo de industria</li>
+<li> É possível filtar salários por parametros </li>
+<li> É possível filtrar salários por um valor específico </li>
+<li> É possível verificar o teste de ordenação </li>
 
 
 
